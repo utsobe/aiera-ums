@@ -186,7 +186,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-blue-100 text-sm font-medium">Total Users</p>
-                <p className="text-3xl font-bold mt-2">{systemStats.totalUsers}</p>
+                <p className="text-3xl font-bold mt-2">
+                  {systemStats.totalUsers}
+                </p>
                 <p className="text-blue-100 text-xs mt-1">Active accounts</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -200,8 +202,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm font-medium">Total Courses</p>
-                <p className="text-3xl font-bold mt-2">{systemStats.totalCourses}</p>
+                <p className="text-green-100 text-sm font-medium">
+                  Total Courses
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {systemStats.totalCourses}
+                </p>
                 <p className="text-green-100 text-xs mt-1">Active programs</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -215,8 +221,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm font-medium">Enrollments</p>
-                <p className="text-3xl font-bold mt-2">{systemStats.activeEnrollments}</p>
+                <p className="text-purple-100 text-sm font-medium">
+                  Enrollments
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {systemStats.activeEnrollments}
+                </p>
                 <p className="text-purple-100 text-xs mt-1">This semester</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -230,9 +240,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Pending Requests</p>
-                <p className="text-3xl font-bold mt-2">{systemStats.pendingRequests}</p>
-                <p className="text-orange-100 text-xs mt-1">Require attention</p>
+                <p className="text-orange-100 text-sm font-medium">
+                  Pending Requests
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {systemStats.pendingRequests}
+                </p>
+                <p className="text-orange-100 text-xs mt-1">
+                  Require attention
+                </p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <Bell className="h-8 w-8 text-white" />
@@ -256,9 +272,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           </CardHeader>
           <CardContent>
             <div className="text-center">
-              <p className="text-4xl font-bold text-blue-600 mb-2">{systemStats.totalStudents}</p>
+              <p className="text-4xl font-bold text-blue-600 mb-2">
+                {systemStats.totalStudents}
+              </p>
               <p className="text-sm text-slate-600">
-                {((systemStats.totalStudents / systemStats.totalUsers) * 100).toFixed(1)}% of total users
+                {(
+                  (systemStats.totalStudents / systemStats.totalUsers) *
+                  100
+                ).toFixed(1)}
+                % of total users
               </p>
             </div>
           </CardContent>
@@ -276,9 +298,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           </CardHeader>
           <CardContent>
             <div className="text-center">
-              <p className="text-4xl font-bold text-green-600 mb-2">{systemStats.totalLecturers}</p>
+              <p className="text-4xl font-bold text-green-600 mb-2">
+                {systemStats.totalLecturers}
+              </p>
               <p className="text-sm text-slate-600">
-                {((systemStats.totalLecturers / systemStats.totalUsers) * 100).toFixed(1)}% of total users
+                {(
+                  (systemStats.totalLecturers / systemStats.totalUsers) *
+                  100
+                ).toFixed(1)}
+                % of total users
               </p>
             </div>
           </CardContent>
@@ -296,9 +324,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           </CardHeader>
           <CardContent>
             <div className="text-center">
-              <p className="text-4xl font-bold text-purple-600 mb-2">{systemStats.totalAdmins}</p>
+              <p className="text-4xl font-bold text-purple-600 mb-2">
+                {systemStats.totalAdmins}
+              </p>
               <p className="text-sm text-slate-600">
-                {((systemStats.totalAdmins / systemStats.totalUsers) * 100).toFixed(1)}% of total users
+                {(
+                  (systemStats.totalAdmins / systemStats.totalUsers) *
+                  100
+                ).toFixed(1)}
+                % of total users
               </p>
             </div>
           </CardContent>
@@ -317,9 +351,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   </div>
                   <span>Recent Activities</span>
                 </CardTitle>
-                <CardDescription>Latest system activities and changes</CardDescription>
+                <CardDescription>
+                  Latest system activities and changes
+                </CardDescription>
               </div>
-              <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+              >
                 <Calendar className="h-4 w-4 mr-2" />
                 View All
               </Button>
@@ -335,7 +374,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   {getActivityIcon(activity.type)}
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-slate-800">{activity.action}</p>
+                  <p className="font-medium text-slate-800">
+                    {activity.action}
+                  </p>
                   <p className="text-sm text-slate-600">{activity.time}</p>
                 </div>
                 <Badge className={getPriorityColor(activity.priority)}>
@@ -360,9 +401,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   </div>
                   <span>System Alerts</span>
                 </CardTitle>
-                <CardDescription>Important notifications and warnings</CardDescription>
+                <CardDescription>
+                  Important notifications and warnings
+                </CardDescription>
               </div>
-              <Button size="sm" className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-orange-500 to-red-500 text-white"
+              >
                 <PlusCircle className="h-4 w-4 mr-2" />
                 New Alert
               </Button>
@@ -380,12 +426,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-slate-800">{alert.title}</h4>
+                      <h4 className="font-semibold text-slate-800">
+                        {alert.title}
+                      </h4>
                       <Badge className={getPriorityColor(alert.priority)}>
                         {alert.priority}
                       </Badge>
                     </div>
-                    <p className="text-sm text-slate-600 mt-1">{alert.description}</p>
+                    <p className="text-sm text-slate-600 mt-1">
+                      {alert.description}
+                    </p>
                   </div>
                 </div>
               </div>

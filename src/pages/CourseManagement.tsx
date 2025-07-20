@@ -116,7 +116,12 @@ export const CourseManagement: React.FC = () => {
       lecturer: "Dr. Zainudin Johari",
       schedule: [
         { day: "Monday", startTime: "10:00", endTime: "12:00", room: "CS-101" },
-        { day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "CS-101" },
+        {
+          day: "Wednesday",
+          startTime: "10:00",
+          endTime: "12:00",
+          room: "CS-101",
+        },
       ],
       description: "Basic programming concepts and algorithms",
       department: "Computer Science",
@@ -130,8 +135,18 @@ export const CourseManagement: React.FC = () => {
       credits: 4,
       lecturer: "Dr. Fatimah Ali",
       schedule: [
-        { day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "CS-201" },
-        { day: "Thursday", startTime: "14:00", endTime: "16:00", room: "CS-201" },
+        {
+          day: "Tuesday",
+          startTime: "14:00",
+          endTime: "16:00",
+          room: "CS-201",
+        },
+        {
+          day: "Thursday",
+          startTime: "14:00",
+          endTime: "16:00",
+          room: "CS-201",
+        },
       ],
       description: "Advanced data structures and algorithms",
       department: "Computer Science",
@@ -145,8 +160,18 @@ export const CourseManagement: React.FC = () => {
       credits: 3,
       lecturer: "Dr. Ahmad Rahman",
       schedule: [
-        { day: "Monday", startTime: "09:00", endTime: "11:00", room: "MATH-101" },
-        { day: "Friday", startTime: "09:00", endTime: "11:00", room: "MATH-101" },
+        {
+          day: "Monday",
+          startTime: "09:00",
+          endTime: "11:00",
+          room: "MATH-101",
+        },
+        {
+          day: "Friday",
+          startTime: "09:00",
+          endTime: "11:00",
+          room: "MATH-101",
+        },
       ],
       description: "Introduction to differential and integral calculus",
       department: "Mathematics",
@@ -160,8 +185,18 @@ export const CourseManagement: React.FC = () => {
       credits: 3,
       lecturer: "Dr. Siti Aminah",
       schedule: [
-        { day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "ENG-101" },
-        { day: "Thursday", startTime: "08:00", endTime: "10:00", room: "ENG-101" },
+        {
+          day: "Tuesday",
+          startTime: "08:00",
+          endTime: "10:00",
+          room: "ENG-101",
+        },
+        {
+          day: "Thursday",
+          startTime: "08:00",
+          endTime: "10:00",
+          room: "ENG-101",
+        },
       ],
       description: "Basic engineering principles and problem-solving",
       department: "Engineering",
@@ -190,22 +225,31 @@ export const CourseManagement: React.FC = () => {
 
   // Filter data based on search and filters
   const filteredCourses = courses.filter((course) => {
-    const matchesSearch = course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         course.code.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesDepartment = selectedDepartment === "all" || course.department === selectedDepartment;
-    
+    const matchesSearch =
+      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.code.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesDepartment =
+      selectedDepartment === "all" || course.department === selectedDepartment;
+
     return matchesSearch && matchesDepartment;
   });
 
   const filteredSubjects = subjects.filter((subject) => {
-    const matchesSearch = subject.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         subject.code.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesDepartment = selectedDepartment === "all" || subject.department === selectedDepartment;
-    
+    const matchesSearch =
+      subject.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      subject.code.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesDepartment =
+      selectedDepartment === "all" || subject.department === selectedDepartment;
+
     return matchesSearch && matchesDepartment;
   });
 
-  const departments = [...new Set([...courses.map(c => c.department), ...subjects.map(s => s.department)])];
+  const departments = [
+    ...new Set([
+      ...courses.map((c) => c.department),
+      ...subjects.map((s) => s.department),
+    ]),
+  ];
 
   const courseStats = {
     totalCourses: courses.length,
@@ -279,8 +323,12 @@ export const CourseManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm font-medium">Total Courses</p>
-                <p className="text-3xl font-bold mt-2">{courseStats.totalCourses}</p>
+                <p className="text-green-100 text-sm font-medium">
+                  Total Courses
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {courseStats.totalCourses}
+                </p>
                 <p className="text-green-100 text-xs mt-1">Active programs</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -294,8 +342,12 @@ export const CourseManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Total Subjects</p>
-                <p className="text-3xl font-bold mt-2">{courseStats.totalSubjects}</p>
+                <p className="text-blue-100 text-sm font-medium">
+                  Total Subjects
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {courseStats.totalSubjects}
+                </p>
                 <p className="text-blue-100 text-xs mt-1">Available subjects</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -309,8 +361,12 @@ export const CourseManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm font-medium">Total Credits</p>
-                <p className="text-3xl font-bold mt-2">{courseStats.totalCredits}</p>
+                <p className="text-purple-100 text-sm font-medium">
+                  Total Credits
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {courseStats.totalCredits}
+                </p>
                 <p className="text-purple-100 text-xs mt-1">Credit hours</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -324,9 +380,15 @@ export const CourseManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Departments</p>
-                <p className="text-3xl font-bold mt-2">{courseStats.activeDepartments}</p>
-                <p className="text-orange-100 text-xs mt-1">Active departments</p>
+                <p className="text-orange-100 text-sm font-medium">
+                  Departments
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {courseStats.activeDepartments}
+                </p>
+                <p className="text-orange-100 text-xs mt-1">
+                  Active departments
+                </p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <Settings className="h-8 w-8 text-white" />
@@ -343,7 +405,9 @@ export const CourseManagement: React.FC = () => {
             <div className="flex items-center space-x-1 bg-slate-100 rounded-lg p-1">
               <Button
                 variant={activeTab === "courses" ? "default" : "ghost"}
-                className={`px-6 ${activeTab === "courses" ? "bg-white shadow-sm" : ""}`}
+                className={`px-6 ${
+                  activeTab === "courses" ? "bg-white shadow-sm" : ""
+                }`}
                 onClick={() => setActiveTab("courses")}
               >
                 <BookOpen className="h-4 w-4 mr-2" />
@@ -351,7 +415,9 @@ export const CourseManagement: React.FC = () => {
               </Button>
               <Button
                 variant={activeTab === "subjects" ? "default" : "ghost"}
-                className={`px-6 ${activeTab === "subjects" ? "bg-white shadow-sm" : ""}`}
+                className={`px-6 ${
+                  activeTab === "subjects" ? "bg-white shadow-sm" : ""
+                }`}
                 onClick={() => setActiveTab("subjects")}
               >
                 <FileText className="h-4 w-4 mr-2" />
@@ -369,7 +435,10 @@ export const CourseManagement: React.FC = () => {
                   className="pl-10"
                 />
               </div>
-              <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
+              <Select
+                value={selectedDepartment}
+                onValueChange={setSelectedDepartment}
+              >
                 <SelectTrigger className="w-48">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue />
@@ -384,7 +453,10 @@ export const CourseManagement: React.FC = () => {
                 </SelectContent>
               </Select>
               {activeTab === "courses" ? (
-                <Dialog open={isAddCourseOpen} onOpenChange={setIsAddCourseOpen}>
+                <Dialog
+                  open={isAddCourseOpen}
+                  onOpenChange={setIsAddCourseOpen}
+                >
                   <DialogTrigger asChild>
                     <Button className="bg-gradient-to-r from-green-500 to-teal-500 text-white">
                       <Plus className="h-4 w-4 mr-2" />
@@ -432,7 +504,10 @@ export const CourseManagement: React.FC = () => {
                         <Select
                           value={newCourse.duration.toString()}
                           onValueChange={(value) =>
-                            setNewCourse({ ...newCourse, duration: parseInt(value) })
+                            setNewCourse({
+                              ...newCourse,
+                              duration: parseInt(value),
+                            })
                           }
                         >
                           <SelectTrigger className="col-span-3">
@@ -446,7 +521,10 @@ export const CourseManagement: React.FC = () => {
                         </Select>
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="course-department" className="text-right">
+                        <Label
+                          htmlFor="course-department"
+                          className="text-right"
+                        >
                           Department
                         </Label>
                         <Select
@@ -476,7 +554,10 @@ export const CourseManagement: React.FC = () => {
                   </DialogContent>
                 </Dialog>
               ) : (
-                <Dialog open={isAddSubjectOpen} onOpenChange={setIsAddSubjectOpen}>
+                <Dialog
+                  open={isAddSubjectOpen}
+                  onOpenChange={setIsAddSubjectOpen}
+                >
                   <DialogTrigger asChild>
                     <Button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                       <Plus className="h-4 w-4 mr-2" />
@@ -499,7 +580,10 @@ export const CourseManagement: React.FC = () => {
                           id="subject-name"
                           value={newSubject.name}
                           onChange={(e) =>
-                            setNewSubject({ ...newSubject, name: e.target.value })
+                            setNewSubject({
+                              ...newSubject,
+                              name: e.target.value,
+                            })
                           }
                           className="col-span-3"
                         />
@@ -512,7 +596,10 @@ export const CourseManagement: React.FC = () => {
                           id="subject-code"
                           value={newSubject.code}
                           onChange={(e) =>
-                            setNewSubject({ ...newSubject, code: e.target.value })
+                            setNewSubject({
+                              ...newSubject,
+                              code: e.target.value,
+                            })
                           }
                           className="col-span-3"
                         />
@@ -524,7 +611,10 @@ export const CourseManagement: React.FC = () => {
                         <Select
                           value={newSubject.credits.toString()}
                           onValueChange={(value) =>
-                            setNewSubject({ ...newSubject, credits: parseInt(value) })
+                            setNewSubject({
+                              ...newSubject,
+                              credits: parseInt(value),
+                            })
                           }
                         >
                           <SelectTrigger className="col-span-3">
@@ -540,27 +630,41 @@ export const CourseManagement: React.FC = () => {
                         </Select>
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="subject-lecturer" className="text-right">
+                        <Label
+                          htmlFor="subject-lecturer"
+                          className="text-right"
+                        >
                           Lecturer
                         </Label>
                         <Input
                           id="subject-lecturer"
                           value={newSubject.lecturer}
                           onChange={(e) =>
-                            setNewSubject({ ...newSubject, lecturer: e.target.value })
+                            setNewSubject({
+                              ...newSubject,
+                              lecturer: e.target.value,
+                            })
                           }
                           className="col-span-3"
                         />
                       </div>
                       <div className="grid grid-cols-4 items-start gap-4">
-                        <Label htmlFor="subject-description" className="text-right pt-2">
+                        <Label
+                          htmlFor="subject-description"
+                          className="text-right pt-2"
+                        >
                           Description
                         </Label>
                         <Textarea
                           id="subject-description"
                           value={newSubject.description}
-                          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                            setNewSubject({ ...newSubject, description: e.target.value })
+                          onChange={(
+                            e: React.ChangeEvent<HTMLTextAreaElement>
+                          ) =>
+                            setNewSubject({
+                              ...newSubject,
+                              description: e.target.value,
+                            })
                           }
                           className="col-span-3"
                           rows={3}
@@ -585,10 +689,16 @@ export const CourseManagement: React.FC = () => {
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
             <span>
-              {activeTab === "courses" ? "Courses" : "Subjects"} ({activeTab === "courses" ? filteredCourses.length : filteredSubjects.length})
+              {activeTab === "courses" ? "Courses" : "Subjects"} (
+              {activeTab === "courses"
+                ? filteredCourses.length
+                : filteredSubjects.length}
+              )
             </span>
             <Badge variant="outline" className="text-sm">
-              {selectedDepartment === "all" ? "All Departments" : selectedDepartment}
+              {selectedDepartment === "all"
+                ? "All Departments"
+                : selectedDepartment}
             </Badge>
           </CardTitle>
         </CardHeader>
@@ -611,8 +721,12 @@ export const CourseManagement: React.FC = () => {
                     <TableRow key={course.id} className="hover:bg-slate-50/50">
                       <TableCell>
                         <div>
-                          <p className="font-medium text-slate-800">{course.name}</p>
-                          <p className="text-sm text-slate-500">ID: {course.id}</p>
+                          <p className="font-medium text-slate-800">
+                            {course.name}
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            ID: {course.id}
+                          </p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -621,12 +735,16 @@ export const CourseManagement: React.FC = () => {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <span className="text-slate-700">{course.department}</span>
+                        <span className="text-slate-700">
+                          {course.department}
+                        </span>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-1">
                           <Clock className="h-4 w-4 text-slate-400" />
-                          <span className="text-slate-700">{course.duration} years</span>
+                          <span className="text-slate-700">
+                            {course.duration} years
+                          </span>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -686,7 +804,9 @@ export const CourseManagement: React.FC = () => {
                     <TableRow key={subject.id} className="hover:bg-slate-50/50">
                       <TableCell>
                         <div>
-                          <p className="font-medium text-slate-800">{subject.name}</p>
+                          <p className="font-medium text-slate-800">
+                            {subject.name}
+                          </p>
                           <p className="text-sm text-slate-500 truncate max-w-xs">
                             {subject.description}
                           </p>
@@ -698,26 +818,38 @@ export const CourseManagement: React.FC = () => {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <span className="text-slate-700">{subject.lecturer}</span>
+                        <span className="text-slate-700">
+                          {subject.lecturer}
+                        </span>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-1">
                           <GraduationCap className="h-4 w-4 text-slate-400" />
-                          <span className="text-slate-700">{subject.credits}</span>
+                          <span className="text-slate-700">
+                            {subject.credits}
+                          </span>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="space-y-1">
-                          {subject.schedule.slice(0, 2).map((schedule, index) => (
-                            <div key={index} className="flex items-center space-x-2 text-sm">
-                              <Calendar className="h-3 w-3 text-slate-400" />
-                              <span className="text-slate-600">
-                                {schedule.day} {schedule.startTime}-{schedule.endTime}
-                              </span>
-                              <MapPin className="h-3 w-3 text-slate-400" />
-                              <span className="text-slate-600">{schedule.room}</span>
-                            </div>
-                          ))}
+                          {subject.schedule
+                            .slice(0, 2)
+                            .map((schedule, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center space-x-2 text-sm"
+                              >
+                                <Calendar className="h-3 w-3 text-slate-400" />
+                                <span className="text-slate-600">
+                                  {schedule.day} {schedule.startTime}-
+                                  {schedule.endTime}
+                                </span>
+                                <MapPin className="h-3 w-3 text-slate-400" />
+                                <span className="text-slate-600">
+                                  {schedule.room}
+                                </span>
+                              </div>
+                            ))}
                         </div>
                       </TableCell>
                       <TableCell>
@@ -755,7 +887,7 @@ export const CourseManagement: React.FC = () => {
               </Table>
             </div>
           )}
-          {((activeTab === "courses" && filteredCourses.length === 0) || 
+          {((activeTab === "courses" && filteredCourses.length === 0) ||
             (activeTab === "subjects" && filteredSubjects.length === 0)) && (
             <div className="text-center py-8">
               <BookOpen className="mx-auto h-12 w-12 text-slate-400 mb-4" />

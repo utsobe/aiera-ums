@@ -75,7 +75,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "1",
       title: "Mid-term Examination Schedule Released",
-      content: "The mid-term examination schedule for all courses has been released. Please check your student portal for your individual exam timetable. All exams will be conducted from March 15-22, 2024.",
+      content:
+        "The mid-term examination schedule for all courses has been released. Please check your student portal for your individual exam timetable. All exams will be conducted from March 15-22, 2024.",
       author: "Admin Office",
       date: "2024-01-15",
       priority: "high",
@@ -84,7 +85,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "2",
       title: "Library Hours Extended During Exam Period",
-      content: "The university library will extend its operating hours during the examination period. The library will be open from 6:00 AM to 12:00 AM daily from March 10-25, 2024.",
+      content:
+        "The university library will extend its operating hours during the examination period. The library will be open from 6:00 AM to 12:00 AM daily from March 10-25, 2024.",
       author: "Library Administration",
       date: "2024-01-14",
       priority: "medium",
@@ -93,7 +95,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "3",
       title: "Faculty Meeting - Curriculum Review",
-      content: "All faculty members are required to attend the curriculum review meeting scheduled for January 20, 2024, at 2:00 PM in the main conference room.",
+      content:
+        "All faculty members are required to attend the curriculum review meeting scheduled for January 20, 2024, at 2:00 PM in the main conference room.",
       author: "Academic Affairs",
       date: "2024-01-12",
       priority: "high",
@@ -102,7 +105,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "4",
       title: "New Course Registration Opens",
-      content: "Registration for the new semester courses will open on February 1, 2024. Students are advised to consult with their academic advisors before registering.",
+      content:
+        "Registration for the new semester courses will open on February 1, 2024. Students are advised to consult with their academic advisors before registering.",
       author: "Registration Office",
       date: "2024-01-10",
       priority: "medium",
@@ -111,7 +115,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "5",
       title: "System Maintenance Notice",
-      content: "The university management system will undergo scheduled maintenance on January 25, 2024, from 2:00 AM to 6:00 AM. The system will be temporarily unavailable during this period.",
+      content:
+        "The university management system will undergo scheduled maintenance on January 25, 2024, from 2:00 AM to 6:00 AM. The system will be temporarily unavailable during this period.",
       author: "IT Department",
       date: "2024-01-08",
       priority: "low",
@@ -120,7 +125,8 @@ export const AnnouncementManagement: React.FC = () => {
     {
       id: "6",
       title: "Research Grant Application Deadline",
-      content: "The deadline for submitting research grant applications for the upcoming fiscal year is February 15, 2024. All required documents must be submitted through the research portal.",
+      content:
+        "The deadline for submitting research grant applications for the upcoming fiscal year is February 15, 2024. All required documents must be submitted through the research portal.",
       author: "Research Office",
       date: "2024-01-05",
       priority: "high",
@@ -138,20 +144,24 @@ export const AnnouncementManagement: React.FC = () => {
 
   // Filter announcements based on search and filters
   const filteredAnnouncements = announcements.filter((announcement) => {
-    const matchesSearch = announcement.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         announcement.content.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesPriority = selectedPriority === "all" || announcement.priority === selectedPriority;
-    const matchesRole = selectedRole === "all" || 
-                       (announcement.targetRole && announcement.targetRole.includes(selectedRole as UserRole));
-    
+    const matchesSearch =
+      announcement.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      announcement.content.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesPriority =
+      selectedPriority === "all" || announcement.priority === selectedPriority;
+    const matchesRole =
+      selectedRole === "all" ||
+      (announcement.targetRole &&
+        announcement.targetRole.includes(selectedRole as UserRole));
+
     return matchesSearch && matchesPriority && matchesRole;
   });
 
   const announcementStats = {
     total: announcements.length,
-    high: announcements.filter(a => a.priority === "high").length,
-    medium: announcements.filter(a => a.priority === "medium").length,
-    low: announcements.filter(a => a.priority === "low").length,
+    high: announcements.filter((a) => a.priority === "high").length,
+    medium: announcements.filter((a) => a.priority === "medium").length,
+    low: announcements.filter((a) => a.priority === "low").length,
   };
 
   const getPriorityColor = (priority: string) => {
@@ -201,11 +211,11 @@ export const AnnouncementManagement: React.FC = () => {
   };
 
   const handleRoleToggle = (role: UserRole) => {
-    setNewAnnouncement(prev => ({
+    setNewAnnouncement((prev) => ({
       ...prev,
       targetRole: prev.targetRole.includes(role)
-        ? prev.targetRole.filter(r => r !== role)
-        : [...prev.targetRole, role]
+        ? prev.targetRole.filter((r) => r !== role)
+        : [...prev.targetRole, role],
     }));
   };
 
@@ -242,7 +252,10 @@ export const AnnouncementManagement: React.FC = () => {
                 <Upload className="h-4 w-4 mr-2" />
                 Template
               </Button>
-              <Dialog open={isAddAnnouncementOpen} onOpenChange={setIsAddAnnouncementOpen}>
+              <Dialog
+                open={isAddAnnouncementOpen}
+                onOpenChange={setIsAddAnnouncementOpen}
+              >
                 <DialogTrigger asChild>
                   <Button className="bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-beautiful">
                     <Plus className="h-4 w-4 mr-2" />
@@ -253,7 +266,8 @@ export const AnnouncementManagement: React.FC = () => {
                   <DialogHeader>
                     <DialogTitle>Create New Announcement</DialogTitle>
                     <DialogDescription>
-                      Create a new announcement to notify users across the system.
+                      Create a new announcement to notify users across the
+                      system.
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
@@ -263,7 +277,10 @@ export const AnnouncementManagement: React.FC = () => {
                         id="announcement-title"
                         value={newAnnouncement.title}
                         onChange={(e) =>
-                          setNewAnnouncement({ ...newAnnouncement, title: e.target.value })
+                          setNewAnnouncement({
+                            ...newAnnouncement,
+                            title: e.target.value,
+                          })
                         }
                         placeholder="Enter announcement title..."
                       />
@@ -274,7 +291,10 @@ export const AnnouncementManagement: React.FC = () => {
                         id="announcement-content"
                         value={newAnnouncement.content}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                          setNewAnnouncement({ ...newAnnouncement, content: e.target.value })
+                          setNewAnnouncement({
+                            ...newAnnouncement,
+                            content: e.target.value,
+                          })
                         }
                         placeholder="Enter announcement content..."
                         rows={6}
@@ -286,7 +306,10 @@ export const AnnouncementManagement: React.FC = () => {
                         <Select
                           value={newAnnouncement.priority}
                           onValueChange={(value: Announcement["priority"]) =>
-                            setNewAnnouncement({ ...newAnnouncement, priority: value })
+                            setNewAnnouncement({
+                              ...newAnnouncement,
+                              priority: value,
+                            })
                           }
                         >
                           <SelectTrigger>
@@ -294,7 +317,9 @@ export const AnnouncementManagement: React.FC = () => {
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="low">Low Priority</SelectItem>
-                            <SelectItem value="medium">Medium Priority</SelectItem>
+                            <SelectItem value="medium">
+                              Medium Priority
+                            </SelectItem>
                             <SelectItem value="high">High Priority</SelectItem>
                           </SelectContent>
                         </Select>
@@ -305,7 +330,10 @@ export const AnnouncementManagement: React.FC = () => {
                           id="announcement-author"
                           value={newAnnouncement.author}
                           onChange={(e) =>
-                            setNewAnnouncement({ ...newAnnouncement, author: e.target.value })
+                            setNewAnnouncement({
+                              ...newAnnouncement,
+                              author: e.target.value,
+                            })
                           }
                         />
                       </div>
@@ -313,23 +341,32 @@ export const AnnouncementManagement: React.FC = () => {
                     <div className="grid gap-2">
                       <Label>Target Audience</Label>
                       <div className="flex flex-wrap gap-2">
-                        {(["student", "lecturer", "admin"] as UserRole[]).map((role) => (
-                          <Button
-                            key={role}
-                            type="button"
-                            variant={newAnnouncement.targetRole.includes(role) ? "default" : "outline"}
-                            size="sm"
-                            onClick={() => handleRoleToggle(role)}
-                            className="capitalize"
-                          >
-                            {role}
-                          </Button>
-                        ))}
+                        {(["student", "lecturer", "admin"] as UserRole[]).map(
+                          (role) => (
+                            <Button
+                              key={role}
+                              type="button"
+                              variant={
+                                newAnnouncement.targetRole.includes(role)
+                                  ? "default"
+                                  : "outline"
+                              }
+                              size="sm"
+                              onClick={() => handleRoleToggle(role)}
+                              className="capitalize"
+                            >
+                              {role}
+                            </Button>
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
                   <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsAddAnnouncementOpen(false)}>
+                    <Button
+                      variant="outline"
+                      onClick={() => setIsAddAnnouncementOpen(false)}
+                    >
                       Save as Draft
                     </Button>
                     <Button type="submit" onClick={handleAddAnnouncement}>
@@ -350,8 +387,12 @@ export const AnnouncementManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Total Announcements</p>
-                <p className="text-3xl font-bold mt-2">{announcementStats.total}</p>
+                <p className="text-orange-100 text-sm font-medium">
+                  Total Announcements
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {announcementStats.total}
+                </p>
                 <p className="text-orange-100 text-xs mt-1">All time</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -365,8 +406,12 @@ export const AnnouncementManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-red-100 text-sm font-medium">High Priority</p>
-                <p className="text-3xl font-bold mt-2">{announcementStats.high}</p>
+                <p className="text-red-100 text-sm font-medium">
+                  High Priority
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {announcementStats.high}
+                </p>
                 <p className="text-red-100 text-xs mt-1">Urgent notices</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -380,8 +425,12 @@ export const AnnouncementManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-yellow-100 text-sm font-medium">Medium Priority</p>
-                <p className="text-3xl font-bold mt-2">{announcementStats.medium}</p>
+                <p className="text-yellow-100 text-sm font-medium">
+                  Medium Priority
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {announcementStats.medium}
+                </p>
                 <p className="text-yellow-100 text-xs mt-1">Regular updates</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -395,8 +444,12 @@ export const AnnouncementManagement: React.FC = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Low Priority</p>
-                <p className="text-3xl font-bold mt-2">{announcementStats.low}</p>
+                <p className="text-blue-100 text-sm font-medium">
+                  Low Priority
+                </p>
+                <p className="text-3xl font-bold mt-2">
+                  {announcementStats.low}
+                </p>
                 <p className="text-blue-100 text-xs mt-1">General info</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
@@ -421,7 +474,10 @@ export const AnnouncementManagement: React.FC = () => {
               />
             </div>
             <div className="flex gap-3">
-              <Select value={selectedPriority} onValueChange={setSelectedPriority}>
+              <Select
+                value={selectedPriority}
+                onValueChange={setSelectedPriority}
+              >
                 <SelectTrigger className="w-36">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue />
@@ -480,7 +536,10 @@ export const AnnouncementManagement: React.FC = () => {
               </TableHeader>
               <TableBody>
                 {filteredAnnouncements.map((announcement) => (
-                  <TableRow key={announcement.id} className="hover:bg-slate-50/50">
+                  <TableRow
+                    key={announcement.id}
+                    className="hover:bg-slate-50/50"
+                  >
                     <TableCell>
                       <div>
                         <p className="font-medium text-slate-800 line-clamp-1">
@@ -492,27 +551,40 @@ export const AnnouncementManagement: React.FC = () => {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge className={`${getPriorityColor(announcement.priority)} flex items-center gap-1 w-fit`}>
+                      <Badge
+                        className={`${getPriorityColor(
+                          announcement.priority
+                        )} flex items-center gap-1 w-fit`}
+                      >
                         {getPriorityIcon(announcement.priority)}
-                        {announcement.priority.charAt(0).toUpperCase() + announcement.priority.slice(1)}
+                        {announcement.priority.charAt(0).toUpperCase() +
+                          announcement.priority.slice(1)}
                       </Badge>
                     </TableCell>
                     <TableCell>
                       <div className="flex flex-wrap gap-1">
                         {announcement.targetRole?.map((role) => (
-                          <Badge key={role} variant="outline" className="text-xs">
+                          <Badge
+                            key={role}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {role}
                           </Badge>
                         ))}
                       </div>
                     </TableCell>
                     <TableCell>
-                      <span className="text-slate-700">{announcement.author}</span>
+                      <span className="text-slate-700">
+                        {announcement.author}
+                      </span>
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center space-x-1">
                         <Calendar className="h-4 w-4 text-slate-400" />
-                        <span className="text-slate-700">{formatDate(announcement.date)}</span>
+                        <span className="text-slate-700">
+                          {formatDate(announcement.date)}
+                        </span>
                       </div>
                     </TableCell>
                     <TableCell>
@@ -556,7 +628,9 @@ export const AnnouncementManagement: React.FC = () => {
           {filteredAnnouncements.length === 0 && (
             <div className="text-center py-8">
               <Bell className="mx-auto h-12 w-12 text-slate-400 mb-4" />
-              <p className="text-slate-600">No announcements found matching your criteria.</p>
+              <p className="text-slate-600">
+                No announcements found matching your criteria.
+              </p>
             </div>
           )}
         </CardContent>

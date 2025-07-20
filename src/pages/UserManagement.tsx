@@ -146,22 +146,30 @@ export const UserManagement: React.FC = () => {
 
   // Filter users based on search and filters
   const filteredUsers = users.filter((user) => {
-    const matchesSearch = user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         user.email.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch =
+      user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesRole = selectedRole === "all" || user.role === selectedRole;
-    const matchesDepartment = selectedDepartment === "all" || user.department === selectedDepartment;
-    
+    const matchesDepartment =
+      selectedDepartment === "all" || user.department === selectedDepartment;
+
     return matchesSearch && matchesRole && matchesDepartment;
   });
 
   const userStats = {
     total: users.length,
-    students: users.filter(u => u.role === "student").length,
-    lecturers: users.filter(u => u.role === "lecturer").length,
-    admins: users.filter(u => u.role === "admin").length,
+    students: users.filter((u) => u.role === "student").length,
+    lecturers: users.filter((u) => u.role === "lecturer").length,
+    admins: users.filter((u) => u.role === "admin").length,
   };
 
-  const departments = [...new Set(users.map(u => u.department).filter((dept): dept is string => dept !== undefined))];
+  const departments = [
+    ...new Set(
+      users
+        .map((u) => u.department)
+        .filter((dept): dept is string => dept !== undefined)
+    ),
+  ];
 
   const getRoleColor = (role: UserRole) => {
     switch (role) {
@@ -415,7 +423,10 @@ export const UserManagement: React.FC = () => {
                   <SelectItem value="admin">Admins</SelectItem>
                 </SelectContent>
               </Select>
-              <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
+              <Select
+                value={selectedDepartment}
+                onValueChange={setSelectedDepartment}
+              >
                 <SelectTrigger className="w-48">
                   <SelectValue />
                 </SelectTrigger>
@@ -442,7 +453,10 @@ export const UserManagement: React.FC = () => {
           <CardTitle className="flex items-center justify-between">
             <span>Users ({filteredUsers.length})</span>
             <Badge variant="outline" className="text-sm">
-              {selectedRole === "all" ? "All" : selectedRole} • {selectedDepartment === "all" ? "All Departments" : selectedDepartment}
+              {selectedRole === "all" ? "All" : selectedRole} •{" "}
+              {selectedDepartment === "all"
+                ? "All Departments"
+                : selectedDepartment}
             </Badge>
           </CardTitle>
         </CardHeader>
@@ -474,13 +488,21 @@ export const UserManagement: React.FC = () => {
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="font-medium text-slate-800">{user.name}</p>
-                          <p className="text-sm text-slate-500">ID: {user.id}</p>
+                          <p className="font-medium text-slate-800">
+                            {user.name}
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            ID: {user.id}
+                          </p>
                         </div>
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge className={`${getRoleColor(user.role)} flex items-center gap-1 w-fit`}>
+                      <Badge
+                        className={`${getRoleColor(
+                          user.role
+                        )} flex items-center gap-1 w-fit`}
+                      >
                         {getRoleIcon(user.role)}
                         {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                       </Badge>
@@ -537,7 +559,9 @@ export const UserManagement: React.FC = () => {
           {filteredUsers.length === 0 && (
             <div className="text-center py-8">
               <Users className="mx-auto h-12 w-12 text-slate-400 mb-4" />
-              <p className="text-slate-600">No users found matching your criteria.</p>
+              <p className="text-slate-600">
+                No users found matching your criteria.
+              </p>
             </div>
           )}
         </CardContent>
