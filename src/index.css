@@ -172,14 +172,14 @@ body {
 }
 
 /* Remove default button styles */
-button {
+/* button {
   border: none;
   background: none;
   padding: 0;
   margin: 0;
   font: inherit;
   cursor: pointer;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -189,9 +189,9 @@ button {
   a:hover {
     color: #747bff;
   }
-  button {
+  /* button {
     background-color: #f9f9f9;
-  }
+  } */
 }
 
 @theme inline {

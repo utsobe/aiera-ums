@@ -43,11 +43,11 @@ const AppContent: React.FC = () => {
 
     return (
       <div>
-        <div className="text-center mb-4">
+        <div className="text-center my-4">
           <Button
             variant="outline"
             onClick={() => setShowShowcase(true)}
-            className="mb-4"
+            className=""
           >
             View Project Features
           </Button>

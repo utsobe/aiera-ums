@@ -285,22 +285,24 @@ export const GradesPage: React.FC = () => {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Subject Code</TableHead>
-                    <TableHead>Subject Name</TableHead>
-                    <TableHead>Marks</TableHead>
-                    <TableHead>Grade</TableHead>
-                    <TableHead>Semester</TableHead>
-                    <TableHead>Year</TableHead>
+                    <TableHead className="text-left">Subject Code</TableHead>
+                    <TableHead className="text-left">Subject Name</TableHead>
+                    <TableHead className="text-left">Marks</TableHead>
+                    <TableHead className="text-left">Grade</TableHead>
+                    <TableHead className="text-left">Semester</TableHead>
+                    <TableHead className="text-left">Year</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredGrades.map((grade) => (
                     <TableRow key={grade.subjectId}>
-                      <TableCell className="font-medium">
+                      <TableCell className="font-medium text-left">
                         {grade.subjectCode}
                       </TableCell>
-                      <TableCell>{grade.subjectName}</TableCell>
-                      <TableCell>
+                      <TableCell className="text-left">
+                        {grade.subjectName}
+                      </TableCell>
+                      <TableCell className="text-left">
                         <div className="flex items-center space-x-2">
                           <span>
                             {grade.marks}/{grade.totalMarks}
@@ -314,13 +316,15 @@ export const GradesPage: React.FC = () => {
                           </span>
                         </div>
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="text-left">
                         <Badge className={getGradeColor(grade.grade)}>
                           {grade.grade}
                         </Badge>
                       </TableCell>
-                      <TableCell>{grade.semester}</TableCell>
-                      <TableCell>{grade.year}</TableCell>
+                      <TableCell className="text-left">
+                        {grade.semester}
+                      </TableCell>
+                      <TableCell className="text-left">{grade.year}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
