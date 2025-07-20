@@ -5,9 +5,13 @@ import { RegistrationPage } from "@/pages/RegistrationPage";
 import { FeatureShowcase } from "@/pages/FeatureShowcase";
 import { StudentDashboard } from "@/pages/StudentDashboard";
 import { LecturerDashboard } from "@/pages/LecturerDashboard";
+import { AdminDashboard } from "@/pages/AdminDashboard";
 import { MyClassesPage } from "@/pages/MyClassesPage";
 import { StudentsPage } from "@/pages/StudentsPage";
 import { MaterialsPage } from "@/pages/MaterialsPage";
+import { UserManagement } from "@/pages/UserManagement";
+import { CourseManagement } from "@/pages/CourseManagement";
+import { AnnouncementManagement } from "@/pages/AnnouncementManagement";
 import { SubjectEnrollment } from "@/pages/SubjectEnrollment";
 import { GradesPage } from "@/pages/GradesPage";
 import { CalendarPage } from "@/pages/CalendarPage";
@@ -78,6 +82,9 @@ const AppContent: React.FC = () => {
         if (user.role === "lecturer") {
           return <LecturerDashboard lecturer={user} />;
         }
+        if (user.role === "admin") {
+          return <AdminDashboard admin={user} />;
+        }
         return (
           <div className="p-8 text-center">
             Dashboard for {user.role} coming soon...
@@ -102,6 +109,15 @@ const AppContent: React.FC = () => {
 
       case "materials":
         return <MaterialsPage />;
+
+      case "users":
+        return <UserManagement />;
+
+      case "courses":
+        return <CourseManagement />;
+
+      case "announcements":
+        return <AnnouncementManagement />;
 
       default:
         return (
