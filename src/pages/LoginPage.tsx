@@ -203,11 +203,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onShowRegistration }) => {
                 <div className="space-y-1">
                   <p>
                     <span className="font-medium">Student:</span>{" "}
-                    john.student@aiera.edu
+                    hasan.student@aiera.edu
                   </p>
                   <p>
                     <span className="font-medium">Lecturer:</span>{" "}
-                    sarah.lecturer@aiera.edu
+                    zainudin.lecturer@aiera.edu
                   </p>
                   <p>
                     <span className="font-medium">Admin:</span> admin@aiera.edu

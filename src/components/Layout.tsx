@@ -57,7 +57,7 @@ export const Layout: React.FC<LayoutProps> = ({
       case "lecturer":
         return [
           ...commonItems,
-          { id: "classes", label: "My Classes", icon: BookOpen },
+          { id: "my-classes", label: "My Classes", icon: BookOpen },
           { id: "students", label: "Students", icon: Users },
           { id: "materials", label: "Materials", icon: FileText },
         ];

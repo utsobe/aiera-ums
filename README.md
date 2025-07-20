@@ -10,6 +10,7 @@ A modern, responsive university management system built with React, TypeScript, 
 ## 🚀 Features
 
 ### 🎓 Student Features
+
 - **Dashboard**: Personalized overview with GPA, attendance, and quick stats
 - **Subject Enrollment**: Browse, enroll, and drop subjects with conflict detection
 - **Grades Management**: View detailed grades, GPA calculation, and performance analytics
@@ -17,11 +18,13 @@ A modern, responsive university management system built with React, TypeScript, 
 - **Schedule Management**: Real-time timetable with today's events
 
 ### 👨‍🏫 Lecturer Features (Coming Soon)
+
 - Class management and attendance tracking
 - Grade submission and student performance monitoring
 - Course material uploads and distribution
 
 ### 👨‍💼 Admin Features (Coming Soon)
+
 - User management (students, lecturers, staff)
 - Course and department management
 - System-wide announcements and notifications
@@ -60,24 +63,27 @@ A modern, responsive university management system built with React, TypeScript, 
 
 ## 📋 Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn package manager
 - Modern web browser with ES6+ support
 
 ## 🚀 Quick Start
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd aiera-ums
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -88,16 +94,19 @@ A modern, responsive university management system built with React, TypeScript, 
 ## 👤 Test Credentials
 
 ### Student Account
-- **Email**: john.student@aiera.edu
+
+- **Email**: hasan.student@aiera.edu
 - **Password**: password123
 - **Role**: Student
 
 ### Lecturer Account
+
 - **Email**: sarah.lecturer@aiera.edu
 - **Password**: password123
 - **Role**: Lecturer
 
 ### Admin Account
+
 - **Email**: admin@aiera.edu
 - **Password**: password123
 - **Role**: Admin
@@ -105,6 +114,7 @@ A modern, responsive university management system built with React, TypeScript, 
 ## 📱 Responsive Design
 
 The application is fully responsive and optimized for:
+
 - 📱 Mobile devices (320px+)
 - 📱 Tablets (768px+)
 - 💻 Desktop computers (1024px+)
@@ -113,13 +123,16 @@ The application is fully responsive and optimized for:
 ## 🎨 UI/UX Features
 
 ### Design Principles
+
 - **Accessibility**: WCAG 2.1 compliant with proper contrast ratios
 - **Consistency**: Unified color scheme and typography
 - **Usability**: Intuitive navigation with minimal clicks
 - **Performance**: Optimized loading and smooth transitions
 
 ### Component Library
+
 Built using shadcn/ui components:
+
 - Cards and layouts
 - Forms and inputs
 - Data tables
@@ -130,6 +143,7 @@ Built using shadcn/ui components:
 ## 📊 Functional Requirements
 
 ### Core Features (Implemented)
+
 - ✅ **FR1**: Role-based authentication (Student, Lecturer, Admin)
 - ✅ **FR2**: Student dashboard with academic overview
 - ✅ **FR3**: Subject enrollment with conflict detection
@@ -138,6 +152,7 @@ Built using shadcn/ui components:
 - ✅ **FR6**: User registration system
 
 ### Upcoming Features
+
 - 🔄 **FR7**: Lecturer grade submission
 - 🔄 **FR8**: Admin user management
 - 🔄 **FR9**: Course material uploads
@@ -195,12 +210,15 @@ src/
 ## 🎯 Future Enhancements
 
 ### Phase 2 Development
+
 1. **Backend Integration**
+
    - REST API development
    - Database design and implementation
    - Real-time notifications
 
 2. **Advanced Features**
+
    - File upload system
    - Email notifications
    - Report generation
@@ -234,6 +252,7 @@ This project is part of an academic assignment for Ai-Era University. All rights
 ## 📞 Support
 
 For technical support or questions about the project:
+
 - Create an issue in the repository
 - Contact the development team
 - Refer to the documentation
