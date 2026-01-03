@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import type { UserRole } from "@/types";
 
 interface LoginPageProps {
@@ -29,6 +30,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onShowRegistration }) => {
   const [role, setRole] = useState<UserRole>("student");
   const [error, setError] = useState("");
   const { login, isLoading } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,6 +44,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onShowRegistration }) => {
     const success = await login(email, password, role);
     if (!success) {
       setError("Invalid credentials. Try: password123");
+    } else {
+      navigate("/dashboard");
     }
   };
 

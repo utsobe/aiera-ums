@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { LoginPage } from "@/pages/LoginPage";
-import { RegistrationPage } from "@/pages/RegistrationPage";
 import { FeatureShowcase } from "@/pages/FeatureShowcase";
 import { StudentDashboard } from "@/pages/StudentDashboard";
 import { LecturerDashboard } from "@/pages/LecturerDashboard";
@@ -16,130 +15,72 @@ import { SubjectEnrollment } from "@/pages/SubjectEnrollment";
 import { GradesPage } from "@/pages/GradesPage";
 import { CalendarPage } from "@/pages/CalendarPage";
 import { Layout } from "@/components/Layout";
-import { Button } from "@/components/ui/button";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import type { Student } from "@/types";
 import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-const AppContent: React.FC = () => {
+const DashboardRouter: React.FC = () => {
   const { user } = useAuth();
-  const [currentPage, setCurrentPage] = useState("dashboard");
-  const [showRegistration, setShowRegistration] = useState(false);
-  const [showShowcase, setShowShowcase] = useState(false);
 
-  if (!user) {
-    if (showShowcase) {
-      return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-lg font-semibold">Feature Overview</h2>
-              <Button onClick={() => setShowShowcase(false)}>
-                Back to Login
-              </Button>
-            </div>
-            <FeatureShowcase />
-          </div>
-        </div>
-      );
-    }
+  if (!user) return <Navigate to="/login" replace />;
 
-    if (showRegistration) {
-      return (
-        <RegistrationPage onBackToLogin={() => setShowRegistration(false)} />
-      );
-    }
-
-    return (
-      <div>
-        <div className="text-center my-4">
-          <Button
-            variant="outline"
-            onClick={() => setShowShowcase(true)}
-            className=""
-          >
-            View Project Features
-          </Button>
-        </div>
-        <LoginPage onShowRegistration={() => setShowRegistration(true)} />
-      </div>
-    );
+  if (user.role === "student") {
+    const studentData: Student = {
+      ...user,
+      role: "student",
+      studentId: "ST2024001",
+      year: 3,
+      gpa: 3.75,
+      enrolledSubjects: ["CS-301", "CS-201", "CS-251", "CS-351"],
+    };
+    return <StudentDashboard student={studentData} />;
   }
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "dashboard":
-        if (user.role === "student") {
-          const studentData: Student = {
-            ...user,
-            role: "student",
-            studentId: "ST2024001",
-            year: 3,
-            gpa: 3.75,
-            enrolledSubjects: ["CS-301", "CS-201", "CS-251", "CS-351"],
-          };
-          return <StudentDashboard student={studentData} />;
-        }
-        if (user.role === "lecturer") {
-          return <LecturerDashboard lecturer={user} />;
-        }
-        if (user.role === "admin") {
-          return <AdminDashboard admin={user} />;
-        }
-        return (
-          <div className="p-8 text-center">
-            Dashboard for {user.role} coming soon...
-          </div>
-        );
-
-      case "subjects":
-      case "enrollment":
-        return <SubjectEnrollment />;
-
-      case "grades":
-        return <GradesPage />;
-
-      case "calendar":
-        return <CalendarPage />;
-
-      case "my-classes":
-        return <MyClassesPage />;
-
-      case "students":
-        return <StudentsPage />;
-
-      case "materials":
-        return <MaterialsPage />;
-
-      case "users":
-        return <UserManagement />;
-
-      case "courses":
-        return <CourseManagement />;
-
-      case "announcements":
-        return <AnnouncementManagement />;
-
-      default:
-        return (
-          <div className="p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">{currentPage}</h2>
-            <p className="text-gray-600">This feature is coming soon...</p>
-          </div>
-        );
-    }
-  };
+  if (user.role === "lecturer") return <LecturerDashboard lecturer={user} />;
+  if (user.role === "admin") return <AdminDashboard admin={user} />;
 
   return (
-    <Layout currentPage={currentPage} onPageChange={setCurrentPage}>
-      {renderPage()}
-    </Layout>
+    <div className="p-8 text-center">
+      Dashboard for {user.role} coming soon...
+    </div>
+  );
+};
+
+const AppRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/feature" element={<FeatureShowcase />} />
+
+      <Route
+        element={
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        }
+      >
+        <Route path="/dashboard" element={<DashboardRouter />} />
+        <Route path="/subjects" element={<SubjectEnrollment />} />
+        <Route path="/enrollment" element={<SubjectEnrollment />} />
+        <Route path="/grades" element={<GradesPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/my-classes" element={<MyClassesPage />} />
+        <Route path="/students" element={<StudentsPage />} />
+        <Route path="/materials" element={<MaterialsPage />} />
+        <Route path="/users" element={<UserManagement />} />
+        <Route path="/courses" element={<CourseManagement />} />
+        <Route path="/announcements" element={<AnnouncementManagement />} />
+      </Route>
+    </Routes>
   );
 };
 
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <AppRoutes />
     </AuthProvider>
   );
 }

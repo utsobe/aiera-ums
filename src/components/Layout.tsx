@@ -1,4 +1,5 @@
 import React from "react";
+import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import {
   BookOpen,
   Calendar,
@@ -23,20 +25,15 @@ import {
   Award,
   Bell,
 } from "lucide-react";
-import type { ReactNode } from "react";
 
 interface LayoutProps {
-  children: ReactNode;
-  currentPage: string;
-  onPageChange: (page: string) => void;
+  children?: ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({
-  children,
-  currentPage,
-  onPageChange,
-}) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   if (!user) return null;
 
@@ -74,6 +71,7 @@ export const Layout: React.FC<LayoutProps> = ({
   };
 
   const navigationItems = getNavigationItems();
+  const pathSegment = location.pathname.split("/")[1] || "dashboard";
 
   const getRoleBadgeColor = (role: string) => {
     switch (role) {
@@ -90,7 +88,6 @@ export const Layout: React.FC<LayoutProps> = ({
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Beautiful Header */}
       <header className="backdrop-blur-xl bg-white/80 border-b border-white/20 shadow-beautiful">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
@@ -180,7 +177,10 @@ export const Layout: React.FC<LayoutProps> = ({
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-slate-200" />
                 <DropdownMenuItem
-                  onClick={logout}
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
                   className="hover:bg-red-50 text-red-600 transition-colors"
                 >
                   <LogOut className="mr-3 h-4 w-4" />
@@ -193,13 +193,13 @@ export const Layout: React.FC<LayoutProps> = ({
       </header>
 
       <div className="flex">
-        {/* Beautiful Sidebar */}
         <aside className="w-72 min-h-screen backdrop-blur-xl bg-white/60 border-r border-white/20 shadow-beautiful">
           <nav className="p-6">
             <div className="space-y-2">
               {navigationItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = currentPage === item.id;
+                const isActive = pathSegment === item.id;
+                const to = `/${item.id}`;
                 return (
                   <Button
                     key={item.id}
@@ -209,7 +209,7 @@ export const Layout: React.FC<LayoutProps> = ({
                         ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-beautiful hover:from-blue-600 hover:to-purple-600"
                         : "hover:bg-white/70 text-slate-700 hover:text-slate-900"
                     }`}
-                    onClick={() => onPageChange(item.id)}
+                    onClick={() => navigate(to)}
                   >
                     <Icon className="mr-3 h-5 w-5" />
                     <span className="font-medium">{item.label}</span>
@@ -221,7 +221,6 @@ export const Layout: React.FC<LayoutProps> = ({
               })}
             </div>
 
-            {/* User info card in sidebar */}
             <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-white/20">
               <div className="flex items-center space-x-3">
                 <Avatar className="h-8 w-8">
@@ -244,13 +243,16 @@ export const Layout: React.FC<LayoutProps> = ({
           </nav>
         </aside>
 
-        {/* Main Content with beautiful styling */}
         <main className="flex-1 overflow-auto">
           <div className="p-8">
-            <div className="max-w-7xl mx-auto animate-fade-in">{children}</div>
+            <div className="max-w-7xl mx-auto animate-fade-in">
+              {children ?? <Outlet />}
+            </div>
           </div>
         </main>
       </div>
     </div>
   );
 };
+
+export default Layout;
