@@ -74,7 +74,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "1",
       name: "Ahmad Rahman",
-      email: "ahmad.student@aiera.edu",
+      email: "ahmad.student@edvance.edu",
       role: "student",
       avatar: "/api/placeholder/32/32",
       department: "Computer Science",
@@ -82,7 +82,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "2",
       name: "Siti Aminah",
-      email: "siti.student@aiera.edu",
+      email: "siti.student@edvance.edu",
       role: "student",
       avatar: "/api/placeholder/32/32",
       department: "Mathematics",
@@ -90,7 +90,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "3",
       name: "Dr. Zainudin Johari",
-      email: "zainudin.lecturer@aiera.edu",
+      email: "zainudin.lecturer@edvance.edu",
       role: "lecturer",
       avatar: "/api/placeholder/32/32",
       department: "Computer Science",
@@ -98,7 +98,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "4",
       name: "Dr. Fatimah Ali",
-      email: "fatimah.lecturer@aiera.edu",
+      email: "fatimah.lecturer@edvance.edu",
       role: "lecturer",
       avatar: "/api/placeholder/32/32",
       department: "Mathematics",
@@ -106,7 +106,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "5",
       name: "Admin User",
-      email: "admin@aiera.edu",
+      email: "admin@edvance.edu",
       role: "admin",
       avatar: "/api/placeholder/32/32",
       department: "Administration",
@@ -114,7 +114,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "6",
       name: "Muhammad Hassan",
-      email: "hassan.student@aiera.edu",
+      email: "hassan.student@edvance.edu",
       role: "student",
       avatar: "/api/placeholder/32/32",
       department: "Engineering",
@@ -122,7 +122,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "7",
       name: "Dr. Nurul Huda",
-      email: "nurul.lecturer@aiera.edu",
+      email: "nurul.lecturer@edvance.edu",
       role: "lecturer",
       avatar: "/api/placeholder/32/32",
       department: "Physics",
@@ -130,7 +130,7 @@ export const UserManagement: React.FC = () => {
     {
       id: "8",
       name: "Aisha Binti Omar",
-      email: "aisha.student@aiera.edu",
+      email: "aisha.student@edvance.edu",
       role: "student",
       avatar: "/api/placeholder/32/32",
       department: "Computer Science",

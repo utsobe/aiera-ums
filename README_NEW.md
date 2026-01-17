@@ -1,8 +1,8 @@
-# Ai-Era University Management System (UMS)
+# Edvance University Management System (UMS)
 
 A modern, responsive university management system built with React, TypeScript, and shadcn/ui components following the Rapid Application Development (RAD) methodology.
 
-![Ai-Era UMS](https://img.shields.io/badge/React-18.0+-blue.svg)
+![Edvance UMS](https://img.shields.io/badge/React-18.0+-blue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)
 ![Vite](https://img.shields.io/badge/Vite-5.0+-green.svg)
 ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-latest-purple.svg)
@@ -33,7 +33,7 @@ A modern, responsive university management system built with React, TypeScript, 
 
 ```
 +-----------------------------+
-|       Ai-Era Frontend      |
+|       Edvance Frontend     |
 +-----------------------------+
 | Role-Based UI Modules      |
 | ├── Student Dashboard      |
@@ -73,7 +73,7 @@ A modern, responsive university management system built with React, TypeScript, 
 
    ```bash
    git clone <repository-url>
-   cd aiera-ums
+   cd edvance-ums
    ```
 
 2. **Install dependencies**
@@ -95,19 +95,19 @@ A modern, responsive university management system built with React, TypeScript, 
 
 ### Student Account
 
-- **Email**: john.student@aiera.edu
+- **Email**: john.student@edvance.edu
 - **Password**: password123
 - **Role**: Student
 
 ### Lecturer Account
 
-- **Email**: sarah.lecturer@aiera.edu
+- **Email**: sarah.lecturer@edvance.edu
 - **Password**: password123
 - **Role**: Lecturer
 
 ### Admin Account
 
-- **Email**: admin@aiera.edu
+- **Email**: admin@edvance.edu
 - **Password**: password123
 - **Role**: Admin
 
@@ -240,7 +240,7 @@ src/
 
 ## 📄 License
 
-This project is part of an academic assignment for Ai-Era University. All rights reserved.
+This project is part of an academic assignment for Edvance University. All rights reserved.
 
 ## 👥 Development Team
 

@@ -89,7 +89,7 @@ export const FeatureShowcase: React.FC = () => {
     <div className="space-y-6">
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">
-          Ai-Era University Management System
+          Edvance University Management System
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           A comprehensive, modern university management platform built with

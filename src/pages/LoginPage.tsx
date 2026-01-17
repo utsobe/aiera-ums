@@ -84,7 +84,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onShowRegistration }) => {
             </div>
             <div>
               <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Ai-Era UMS
+                Edvance UMS
               </CardTitle>
               <CardDescription className="text-base text-slate-600 mt-2">
                 Welcome back! Please sign in to your account
@@ -207,14 +207,15 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onShowRegistration }) => {
                 <div className="space-y-1">
                   <p>
                     <span className="font-medium">Student:</span>{" "}
-                    hasan.student@aiera.edu
+                    hasan.student@edvance.edu
                   </p>
                   <p>
                     <span className="font-medium">Lecturer:</span>{" "}
-                    zainudin.lecturer@aiera.edu
+                    zainudin.lecturer@edvance.edu
                   </p>
                   <p>
-                    <span className="font-medium">Admin:</span> admin@aiera.edu
+                    <span className="font-medium">Admin:</span>{" "}
+                    admin@edvance.edu
                   </p>
                   <p>
                     <span className="font-medium">Password:</span> password123
