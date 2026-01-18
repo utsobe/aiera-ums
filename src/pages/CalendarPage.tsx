@@ -161,7 +161,7 @@ export const CalendarPage: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
+        <div className="flex flex-col items-start">
           <h1 className="text-3xl font-bold tracking-tight">
             Academic Calendar
           </h1>
@@ -332,12 +332,12 @@ export const CalendarPage: React.FC = () => {
                 key={event.id}
                 className="flex items-center justify-between p-4 border rounded-lg"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex justify-start items-center space-x-4">
                   <Badge className={getEventTypeColor(event.type)}>
                     {event.type}
                   </Badge>
                   <div>
-                    <p className="font-medium">{event.title}</p>
+                    <p className="font-medium text-left">{event.title}</p>
                     <div className="flex items-center space-x-4 text-sm text-gray-600">
                       <span>{new Date(event.date).toLocaleDateString()}</span>
                       <div className="flex items-center space-x-1">

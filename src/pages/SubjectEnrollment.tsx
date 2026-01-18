@@ -195,11 +195,11 @@ export const SubjectEnrollment: React.FC = () => {
         <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full -translate-y-20 translate-x-20"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full translate-y-16 -translate-x-16"></div>
         <div className="relative z-10 p-8">
-          <div className="flex items-center space-x-4 mb-4">
+          <div className="flex items-start space-x-4 mb-4">
             <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-beautiful">
               <BookOpen className="h-8 w-8 text-white" />
             </div>
-            <div>
+            <div className="flex flex-col justify-start items-start">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Subject Enrollment
               </h1>

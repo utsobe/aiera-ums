@@ -185,11 +185,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Total Users</p>
-                <p className="text-3xl font-bold mt-2">
+                <p className="text-blue-100 text-sm font-medium text-left">Total Users</p>
+                <p className="text-3xl font-bold mt-2 text-left">
                   {systemStats.totalUsers}
                 </p>
-                <p className="text-blue-100 text-xs mt-1">Active accounts</p>
+                <p className="text-blue-100 text-xs mt-1 text-left">Active accounts</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <Users className="h-8 w-8 text-white" />
@@ -202,13 +202,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm font-medium">
+                <p className="text-green-100 text-sm font-medium text-left">
                   Total Courses
                 </p>
-                <p className="text-3xl font-bold mt-2">
+                <p className="text-3xl font-bold mt-2 text-left">
                   {systemStats.totalCourses}
                 </p>
-                <p className="text-green-100 text-xs mt-1">Active programs</p>
+                <p className="text-green-100 text-xs mt-1 text-left">Active programs</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <BookOpen className="h-8 w-8 text-white" />
@@ -221,13 +221,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm font-medium">
+                <p className="text-purple-100 text-sm font-medium text-left">
                   Enrollments
                 </p>
-                <p className="text-3xl font-bold mt-2">
+                <p className="text-3xl font-bold mt-2 text-left">
                   {systemStats.activeEnrollments}
                 </p>
-                <p className="text-purple-100 text-xs mt-1">This semester</p>
+                <p className="text-purple-100 text-xs mt-1 text-left">This semester</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <GraduationCap className="h-8 w-8 text-white" />
@@ -240,13 +240,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">
+                <p className="text-orange-100 text-sm font-medium text-left">
                   Pending Requests
                 </p>
-                <p className="text-3xl font-bold mt-2">
+                <p className="text-3xl font-bold mt-2 text-left">
                   {systemStats.pendingRequests}
                 </p>
-                <p className="text-orange-100 text-xs mt-1">
+                <p className="text-orange-100 text-xs mt-1 text-left">
                   Require attention
                 </p>
               </div>
@@ -374,10 +374,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   {getActivityIcon(activity.type)}
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-slate-800">
+                  <p className="font-medium text-slate-800 text-left">
                     {activity.action}
                   </p>
-                  <p className="text-sm text-slate-600">{activity.time}</p>
+                  <p className="text-sm text-slate-600 text-left">{activity.time}</p>
                 </div>
                 <Badge className={getPriorityColor(activity.priority)}>
                   {activity.priority}
@@ -426,14 +426,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ admin }) => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-slate-800">
+                      <h4 className="font-semibold text-slate-800 text-left">
                         {alert.title}
                       </h4>
                       <Badge className={getPriorityColor(alert.priority)}>
                         {alert.priority}
                       </Badge>
                     </div>
-                    <p className="text-sm text-slate-600 mt-1">
+                    <p className="text-sm text-slate-600 mt-1 text-left">
                       {alert.description}
                     </p>
                   </div>

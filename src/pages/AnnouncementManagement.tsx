@@ -542,10 +542,10 @@ export const AnnouncementManagement: React.FC = () => {
                   >
                     <TableCell>
                       <div>
-                        <p className="font-medium text-slate-800 line-clamp-1">
+                        <p className="font-medium text-slate-800 line-clamp-1 text-left">
                           {announcement.title}
                         </p>
-                        <p className="text-sm text-slate-500 line-clamp-2 max-w-md mt-1">
+                        <p className="text-sm text-slate-500 line-clamp-2 max-w-md mt-1 text-left">
                           {announcement.content}
                         </p>
                       </div>

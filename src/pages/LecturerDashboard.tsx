@@ -127,7 +127,7 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full -translate-y-16 translate-x-16"></div>
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full translate-y-12 -translate-x-12"></div>
         <CardHeader className="pb-8 relative z-10">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-start space-x-6">
             <div className="relative">
               <Avatar className="h-20 w-20 ring-4 ring-white shadow-beautiful-lg">
                 <AvatarImage src={lecturer.avatar} alt={lecturer.name} />
@@ -143,7 +143,7 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
               </div>
             </div>
             <div>
-              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-left">
                 Welcome, Mr. {lecturer.name.split(" ")[1]}!
               </CardTitle>
               <CardDescription className="text-lg text-slate-600 mt-2">
@@ -171,13 +171,13 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">
+                <p className="text-blue-100 text-sm font-medium text-left">
                   Today's Classes
                 </p>
-                <p className="text-3xl font-bold mt-2">
+                <p className="text-3xl font-bold mt-2 text-left">
                   {upcomingClasses.length}
                 </p>
-                <p className="text-blue-100 text-xs mt-1">Scheduled sessions</p>
+                <p className="text-blue-100 text-xs mt-1 text-left">Scheduled sessions</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <BookOpen className="h-8 w-8 text-white" />
@@ -190,11 +190,11 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm font-medium">
+                <p className="text-green-100 text-sm font-medium text-left">
                   Total Students
                 </p>
-                <p className="text-3xl font-bold mt-2">135</p>
-                <p className="text-green-100 text-xs mt-1">
+                <p className="text-3xl font-bold mt-2 text-left">135</p>
+                <p className="text-green-100 text-xs mt-1 text-left">
                   Across all classes
                 </p>
               </div>
@@ -209,11 +209,11 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm font-medium">
+                <p className="text-purple-100 text-sm font-medium text-left">
                   Pending Grades
                 </p>
-                <p className="text-3xl font-bold mt-2">23</p>
-                <p className="text-purple-100 text-xs mt-1">
+                <p className="text-3xl font-bold mt-2 text-left">23</p>
+                <p className="text-purple-100 text-xs mt-1 text-left">
                   Assignments to grade
                 </p>
               </div>
@@ -228,9 +228,9 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Materials</p>
-                <p className="text-3xl font-bold mt-2">47</p>
-                <p className="text-orange-100 text-xs mt-1">Course resources</p>
+                <p className="text-orange-100 text-sm font-medium text-left">Materials</p>
+                <p className="text-3xl font-bold mt-2 text-left">47</p>
+                <p className="text-orange-100 text-xs mt-1 text-left">Course resources</p>
               </div>
               <div className="p-3 bg-white/20 rounded-xl group-hover:scale-110 transition-transform">
                 <FileText className="h-8 w-8 text-white" />
@@ -276,7 +276,7 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
                     <BookOpen className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-800">
+                    <p className="font-semibold text-slate-800 text-left">
                       {cls.subject}
                     </p>
                     <div className="flex items-center space-x-3 text-sm text-slate-600">
@@ -325,10 +325,10 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
                   {getActivityIcon(activity.type)}
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-slate-800">
+                  <p className="font-semibold text-slate-800 text-left">
                     {activity.action}
                   </p>
-                  <p className="text-sm text-slate-600">{activity.time}</p>
+                  <p className="text-sm text-slate-600 text-left">{activity.time}</p>
                 </div>
               </div>
             ))}
@@ -363,10 +363,10 @@ export const LecturerDashboard: React.FC<LecturerDashboardProps> = ({
                   <Bell className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-800">
+                  <p className="font-semibold text-slate-800 text-left">
                     {announcement.title}
                   </p>
-                  <p className="text-sm text-slate-600">{announcement.time}</p>
+                  <p className="text-sm text-slate-600 text-left">{announcement.time}</p>
                 </div>
               </div>
               <Badge className={getPriorityColor(announcement.priority)}>

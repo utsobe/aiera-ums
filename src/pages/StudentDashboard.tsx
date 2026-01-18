@@ -109,7 +109,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full -translate-y-16 translate-x-16"></div>
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full translate-y-12 -translate-x-12"></div>
         <CardHeader className="pb-8 relative z-10">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-start space-x-6">
             <div className="relative">
               <Avatar className="h-20 w-20 ring-4 ring-white shadow-beautiful-lg">
                 <AvatarImage src={student.avatar} alt={student.name} />
@@ -128,7 +128,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Welcome back, {student.name}!
               </CardTitle>
-              <CardDescription className="text-lg text-slate-600 mt-2">
+              <CardDescription className="text-lg text-slate-600 mt-2 flex items-center space-x-2">
                 <span className="font-medium">{student.course}</span> • Year{" "}
                 {student.year} •
                 <span className="font-medium text-green-600 ml-1">
@@ -154,7 +154,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0 shadow-beautiful-lg hover-lift group">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="flex flex-col items-start">
                 <p className="text-blue-100 text-sm font-medium">
                   Enrolled Subjects
                 </p>
@@ -173,7 +173,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-beautiful-lg hover-lift group">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="flex flex-col items-start">
                 <p className="text-green-100 text-sm font-medium">
                   Current GPA
                 </p>
@@ -198,7 +198,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0 shadow-beautiful-lg hover-lift group">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="flex flex-col items-start">
                 <p className="text-purple-100 text-sm font-medium">
                   Today's Classes
                 </p>
@@ -217,7 +217,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white border-0 shadow-beautiful-lg hover-lift group">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="flex flex-col items-start">
                 <p className="text-orange-100 text-sm font-medium">
                   Attendance
                 </p>
@@ -242,7 +242,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               </div>
               <span>Today's Schedule</span>
             </CardTitle>
-            <CardDescription>
+            <CardDescription >
               Your classes and activities for today
             </CardDescription>
           </CardHeader>
